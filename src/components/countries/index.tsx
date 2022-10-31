@@ -1,5 +1,5 @@
 import { SearchOutlined } from "@material-ui/icons"
-import { Box, Container, FormControl, FormHelperText, IconButton, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material"
+import { Box, Container, FormControl, FormHelperText, Grid, IconButton, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material"
 import { useEffect, useMemo, useState } from "react"
 import { MainLayout } from "../layout/MainLayout"
 import { CountryCard } from "./CountryCard"
@@ -9,9 +9,10 @@ import debounce from "lodash.debounce";
 
 
 export const Countires = () => {
-  const axios = useAxios()
-  const [countryName, setConutryName] = useState("")
-  const [countries, setCountries] = useState([])
+  const axios = useAxios();
+  const [countryName, setConutryName] = useState("");
+  const [countries, setCountries] = useState([]);
+
   const handleFilterCountries = (e: any) => {
     e.preventDefault()
     getFilteredCountries(e.target.value.toLowerCase())
@@ -19,9 +20,12 @@ export const Countires = () => {
 
   const handleSearchCountry = debounce((e: any) => {
     e.preventDefault();
-    getSearchedCountry(e.target.value.toLowerCase())
-
-  },500)
+    if(e.target.value.length !== 0 ) {
+      getSearchedCountry(e.target.value)
+    } else {
+      getCountries()
+    }
+  },200)
 
   const getFilteredCountries = async (region: string) => {
     const countriesData  = await  axios.get(`/region/${region}`)
@@ -45,12 +49,12 @@ export const Countires = () => {
   useEffect(() => {
     getCountries()
   }, [])
+  console.log("sss", countries)
  
-  console.log("data",countries)
     return (
 			<MainLayout>
         <Container>
-          <Box sx={{display: "flex", justifyContent: "space-between"}}>
+          <Box sx={{display: "flex", marginBottom: "30px", flexDirection: {xs: "column", sm: "column", md: "row"}, gap: {xs: 2, sm: 2, md: 0}, justifyContent: "space-between"}}>
             <TextField
               id="standard-bare"
               variant="outlined"
@@ -64,7 +68,7 @@ export const Countires = () => {
                 ),
               }}
             />
-            <FormControl sx={{ m: 1, minWidth: 170 }}>
+            <FormControl sx={{ width: {xs: "50%", sm: "50%", md: 170} }}>
               <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -80,8 +84,8 @@ export const Countires = () => {
                 <MenuItem value={"Ocenainc"}>Oceania</MenuItem>
               </Select>
             </FormControl>
-            </Box>
-            <Box sx={{display: "flex", gap: 2, flexWrap: "wrap", justifyContent: "space-between"}}>
+          </Box>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 4, md: 8, lg:12 }}>
               
               {
                 countries.length > 0 
@@ -95,7 +99,7 @@ export const Countires = () => {
                 :
                  <Box>Loading....</Box>
               }
-            </Box>
+            </Grid>
         </Container>
       </MainLayout>
 		)

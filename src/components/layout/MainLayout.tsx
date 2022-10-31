@@ -1,14 +1,10 @@
-import { FC, useState } from "react"
-import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import { Box, Container, CssBaseline, Switch } from "@material-ui/core";
-import { Paper } from "@mui/material";
+import { FC } from "react"
+import { Box, Container } from "@mui/material";
 
 
 interface ILayoutProps {
   children?: JSX.Element
 }
-
-
 
 export const MainLayout: FC<ILayoutProps> = ({children}) => {
   return (

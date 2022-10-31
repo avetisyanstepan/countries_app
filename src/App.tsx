@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Countires } from "./components/countries";
-import { Country } from "./components/country";
+import { CountryDetail } from "./components/countryDetail";
 import { useState } from "react"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -60,9 +60,8 @@ function App() {
       <Box sx={{marginTop: 4}}>
         <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Countires />}>
-            <Route path="country/:id" element={<Country />} />
-          </Route>
+          <Route path="/" element={<Countires />} />
+          <Route path="country/:name" element={<CountryDetail />} />
         </Routes>
         </BrowserRouter>
       </Box>
