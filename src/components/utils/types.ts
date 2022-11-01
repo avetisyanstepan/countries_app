@@ -24,6 +24,4 @@ export interface ICountry {
     capital: [string]
     subregion?: string
     borders?: [string]
-
-
 }

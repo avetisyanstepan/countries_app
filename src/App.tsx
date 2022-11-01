@@ -21,7 +21,17 @@ function App() {
     palette: {
       mode: 'dark',
       primary: {
-        main: "#ffffff" ,
+        main: "#2d3743",
+        light: "#ffffff",
+        contrastText: "#ffffff"
+      },
+      secondary: {
+        main:"#222c36",
+        contrastText: "#ffffff"
+      },
+      text: {
+        primary: "#ffffff",
+        secondary: "#fafafa"
       },
     },
    
@@ -31,23 +41,32 @@ function App() {
     palette: {
       mode: 'light',
       primary: {
-        main: "#000000",
+        main: "#ffffff",
+        contrastText: "#000000"
       },
+      text: {
+        primary: "#000000",
+        secondary: "#1f1d1d"
+      },
+      secondary: {
+        main: "#fafafa",
+        contrastText: "#ffffff"
+      }
     },
   });
-
+    console.log("palete", darkTheme.palette)
   return (
   <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
     <CssBaseline />
-      <Box sx={{borderBottom: 1, borderColor: "gray", paddingY: "8px", boxShadow: 1}}>
+      <Box sx={{backgroundColor: "primary.main", borderBottom: 1, borderColor: "gray", paddingY: "8px", boxShadow: 1}}>
         <Container 
           sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
         > 
-          <Typography>
+          <Typography sx={{color: 'text.primary'}}>
             Where in the world?
           </Typography>
           <Button 
-            color="primary"
+            sx={{ color: 'primary.contrastText', borderColor: 'green' }}
             onClick={() => setDarkMode(!darkMode) } 
             disableRipple disableElevation
             style={{background: "transparent"}}
@@ -57,7 +76,7 @@ function App() {
           </Button>
         </Container>
       </Box>
-      <Box sx={{marginTop: 4}}>
+      <Box>
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<Countires />} />

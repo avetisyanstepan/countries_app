@@ -10,12 +10,13 @@ import debounce from "lodash.debounce";
 
 export const Countires = () => {
   const axios = useAxios();
-  const [countryName, setConutryName] = useState("");
+  const [region, setRegion] = useState("");
   const [countries, setCountries] = useState([]);
 
   const handleFilterCountries = (e: any) => {
     e.preventDefault()
     getFilteredCountries(e.target.value.toLowerCase())
+    setRegion(e.target.value)
   }
 
   const handleSearchCountry = debounce((e: any) => {
@@ -73,7 +74,7 @@ export const Countires = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={countryName}
+                value={region}
                 label="Filter by Region"
                 onChange={handleFilterCountries}
               >

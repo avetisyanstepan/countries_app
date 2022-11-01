@@ -19,7 +19,7 @@ export const CountryCard: FC<ICountryProps> = ({data}) => {
             height="200"
             image={`${data?.flags.png}`}
           />
-          <CardContent>
+          <CardContent sx={{backgroundColor:"primary.main"}}>
             <Typography gutterBottom variant="h5">
               {data?.name.common}
             </Typography>

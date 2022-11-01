@@ -22,9 +22,9 @@ export const CountryDetail = () => {
 
   const s = "https://restcountries.com/v2/name/{name}?fullText=true"
     return (
-      <Container>
+      <Container sx={{backgroundColor: "secondary.main", paddingTop: "10px", height:"calc(100vh - 53.5px)"}}>
         <NavLink to="/">
-          <Button variant="outlined" startIcon={<ArrowBack />}>
+          <Button variant="outlined" sx={{backgroundColor: "primary.main", boxShadow: 3 , color: "primary.contrastText"}} startIcon={<ArrowBack />}>
             Back
           </Button>
         </NavLink>
@@ -94,7 +94,7 @@ export const CountryDetail = () => {
                   <Box sx={{display: "flex", flexWrap: "wrap", gap:2}}>
                     {
                       country.borders.map((border, index) => (
-                        <Paper  key={index} color="text.secondary" sx={{ fontSize: '16px', p: "8px" }}>
+                        <Paper  key={index} color="text.secondary" sx={{ fontSize: '16px', px: "24px", py: "4px", backgroundColor: "primary.main" }}>
                             {border}
                         </Paper>
                       ) )
