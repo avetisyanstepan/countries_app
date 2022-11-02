@@ -1,7 +1,7 @@
-import { Box, Card, Grid, CardContent, CardMedia, Typography, styled } from "@mui/material"
+import {  Card, Grid, CardContent, CardMedia, Typography } from "@mui/material"
 import { FC } from "react"
-import { Link, NavLink } from "react-router-dom"
-import { ICountry } from "../utils/types"
+import { NavLink } from "react-router-dom"
+import { ICountry } from "../../utils/types"
 
 
 interface ICountryProps {

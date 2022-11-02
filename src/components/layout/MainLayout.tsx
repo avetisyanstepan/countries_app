@@ -8,10 +8,10 @@ interface ILayoutProps {
 
 export const MainLayout: FC<ILayoutProps> = ({children}) => {
   return (
-    <Container sx={{backgroundColor: "secondary.main", paddingTop: 6}}>
+    <Box sx={{backgroundColor: "secondary.main", paddingTop: 6}}>
       <Box  sx={{display: 'flex', flexDirection: "column", mx: 'auto',  marginBottom: "20px"}}>
         {children}
       </Box>  
-    </Container>
+    </Box>
   )
 }

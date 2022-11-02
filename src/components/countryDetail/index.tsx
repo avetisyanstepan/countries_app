@@ -3,7 +3,7 @@ import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material"
 import { useEffect, useMemo, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import useAxios from "../../Hooks/useAxios";
-import { ICountry } from "../utils/types";
+import { ICountry } from "../../utils/types";
 
 export const CountryDetail = () => {
   const axios = useAxios();
