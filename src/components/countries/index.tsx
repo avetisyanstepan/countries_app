@@ -50,7 +50,6 @@ export const Countires = () => {
   useEffect(() => {
     getCountries()
   }, [])
-  console.log("sss", countries)
  
     return (
 			<MainLayout>

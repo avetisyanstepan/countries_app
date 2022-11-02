@@ -54,7 +54,6 @@ function App() {
       }
     },
   });
-    console.log("palete", darkTheme.palette)
   return (
   <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
     <CssBaseline />

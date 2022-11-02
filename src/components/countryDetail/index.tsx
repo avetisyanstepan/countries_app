@@ -18,11 +18,11 @@ export const CountryDetail = () => {
   useEffect(() => {
     getSearchedCountry()
   }, [])
-  console.log("country", country )
 
   const s = "https://restcountries.com/v2/name/{name}?fullText=true"
     return (
-      <Container sx={{backgroundColor: "secondary.main", paddingTop: "10px", height:"calc(100vh - 53.5px)"}}>
+      <Box sx={{backgroundColor: "secondary.main", paddingTop: "10px", height:"calc(100vh - 53.5px)"}}>
+        <Container>
         <NavLink to="/">
           <Button variant="outlined" sx={{backgroundColor: "primary.main", boxShadow: 3 , color: "primary.contrastText"}} startIcon={<ArrowBack />}>
             Back
@@ -105,6 +105,7 @@ export const CountryDetail = () => {
             }
           </Box>
         </Box>
-      </Container>
+        </Container>
+      </Box>
     )
 }
